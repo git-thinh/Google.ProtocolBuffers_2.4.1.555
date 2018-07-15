@@ -1,0 +1,45 @@
+// Additional options required for C# generation. File from copyright
+// line onwards is as per original distribution.
+import "google/protobuf/csharp_options.proto";
+import "google/protobuf/csharp_rpc_messages.proto";
+option (google.protobuf.csharp_file_options).service_generator_type = IRPCDISPATCH;
+
+option optimize_for = SPEED;
+
+message SearchRequest {
+  repeated string Criteria = 1;
+}
+
+message SearchResponse {
+  message ResultItem {
+    required string url = 1;
+    optional string name = 2;
+  }
+  
+  repeated ResultItem results = 1;
+}
+
+message RefineSearchRequest {
+  repeated string Criteria = 1;
+  required SearchResponse previous_results = 2;
+}
+
+service SearchService {
+  option (google.protobuf.csharp_service_options).interface_id = "{A65F0925-FD11-4f94-B166-89AC4F027205}";
+  rpc Search (SearchRequest) returns (SearchResponse) { option (google.protobuf.csharp_method_options).dispatch_id = 5; };
+  
+  rpc RefineSearch (RefineSearchRequest) returns (SearchResponse);
+}
+
+extend .google.protobuf.rpc_messages.RpcPingRequest {
+  optional string custom_ping_data_in = 101;
+}
+
+extend .google.protobuf.rpc_messages.RpcPingResponse {
+  optional string custom_ping_data_out = 101;
+}
+
+extend .google.protobuf.rpc_messages.RpcCallContext {
+  optional uint64 custom_context_number = 101;
+  optional string custom_context_string = 102;
+}

@@ -1,0 +1,25 @@
+package google.ProtocolBuffers.Rpc.Benchmarks;
+
+message SampleProtoData
+{
+    required bytes bytes = 1;
+    required string text = 2;
+    required int32 number = 3;
+    required double float = 4;
+    required sfixed64 time = 5;
+}
+
+message SampleRequest
+{
+    repeated SampleProtoData data = 1;
+}
+
+message SampleResponse
+{
+    repeated SampleProtoData data = 1;
+}
+
+service SampleService
+{
+    rpc Test (SampleRequest) returns (SampleResponse);
+}
