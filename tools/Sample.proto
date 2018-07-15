@@ -1,0 +1,13 @@
+package Sample;
+option optimize_for = SPEED;
+
+message MyRequest {
+  required string message = 1;
+}
+
+message MyResponse {
+}
+
+service MyService {
+  rpc Send (MyRequest) returns (MyResponse);
+}
