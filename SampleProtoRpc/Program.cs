@@ -2,6 +2,8 @@
 using Sample;
 using System.Runtime.InteropServices;
 using Google.ProtocolBuffers.Rpc;
+using helloworld;
+using books;
 
 namespace SampleProtoRpc
 {
@@ -11,20 +13,65 @@ namespace SampleProtoRpc
 
         static void Main(string[] args)
         {
+            args = new[] { "" };
+            args[0] = "listen";
+
             switch (args[0].ToLower())
             {
                 case "listen":
                     {
-                        using (RpcServer.CreateRpc(IID, new Impersonation(new MyService.ServerStub(new Implementation())))
+                        ////using (RpcServer.CreateRpc(IID, new Impersonation(new MyService.ServerStub(new Implementation())))
+                        //using (RpcServer.CreateRpc(IID, new Impersonation(new Greeter.ServerStub(new Implementation_Greeter())))
+                        //    //.AddAuthentication(CSharpTest.Net.RpcLibrary.RpcAuthentication.RPC_C_AUTHN_NONE)
+                        //    //.AddAuthNegotiate()
+                        //    .AddProtocol("ncacn_ip_tcp", "50051")
+                        //    //.AddProtocol("ncacn_np", @"\pipe\Greeter")
+                        //    ////.AddProtocol("ncalrpc", "MyService")
+                        //    //.AddProtocol("ncalrpc", "Greeter")
+                        //    .StartListening())
+                        //{
+                        //    Console.WriteLine("Waiting for connections...");
+                        //    Console.ReadLine();
+                        //}
+
+
+                        Guid iid = Marshal.GenerateGuidForType(typeof(IGreeter));
+                        using (RpcServer.CreateRpc(iid, new Greeter.ServerStub(new Anonymous_Greeter()))
+                            //.AddAuthNegotiate()
+                            .AddAuthentication(CSharpTest.Net.RpcLibrary.RpcAuthentication.RPC_C_AUTHN_NONE)
                             .AddAuthNegotiate()
-                            .AddProtocol("ncacn_ip_tcp", "8080")
-                            .AddProtocol("ncacn_np", @"\pipe\MyService")
-                            .AddProtocol("ncalrpc", "MyService")
+                            .AddProtocol("ncacn_ip_tcp", "50051")
+                            //.AddProtocol("ncalrpc", "Greeter")
                             .StartListening())
                         {
+
                             Console.WriteLine("Waiting for connections...");
+                            string name = "123"; // Console.ReadLine();
+
+
+                            using (Greeter client = new Greeter(RpcClient
+                                .ConnectRpc(iid, "ncacn_ip_tcp", @"localhost", "50051")
+                                .Authenticate(RpcAuthenticationType.Self)
+                                //.Authenticate(RpcAuthenticationType.None)
+                                ))
+                            {
+                                HelloReply response = client.SayHello(HelloRequest.CreateBuilder().SetName(name).Build());
+                                Console.WriteLine("OK: " + response.Message);
+                            }
                             Console.ReadLine();
                         }
+
+                        //Guid iid = Marshal.GenerateGuidForType(typeof(IBookService));
+                        //using (RpcServer.CreateRpc(iid, new BookService.ServerStub(new Anonymous_BookService()))
+                        //    .AddProtocol("ncacn_ip_tcp", "50051")
+                        //    .AddProtocol("ncalrpc", "BookService")
+                        //    .StartListening())
+                        //{
+                        //    Console.WriteLine("Waiting for connections...");
+                        //    Console.ReadLine();
+                        //}
+
+
                         break;
                     }
                 case "send-lrpc":
@@ -71,7 +118,7 @@ namespace SampleProtoRpc
                                 MyResponse response = client.Send(
                                     MyRequest.CreateBuilder().SetMessage("Hello from Anonymous!").Build());
                             }
-                            catch(Exception e)
+                            catch (Exception e)
                             {
                                 Console.Error.WriteLine(e);
                             }

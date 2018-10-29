@@ -1,0 +1,17 @@
+package books;
+
+service BookService {
+  rpc List (Empty) returns (BookList) {}
+}
+
+message Empty {} 
+
+message Book {
+  required int32 id = 1;
+  optional string title = 2;
+  optional string author = 3;
+}
+
+message BookList {
+  repeated Book books = 1;
+}
