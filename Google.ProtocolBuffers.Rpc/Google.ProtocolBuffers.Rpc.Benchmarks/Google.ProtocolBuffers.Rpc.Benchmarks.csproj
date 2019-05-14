@@ -30,6 +30,7 @@
     <Optimize>false</Optimize>
     <OutputPath>..\..\build\</OutputPath>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <DocumentationFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
