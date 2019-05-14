@@ -83,3 +83,17 @@ bin/obj/CSharpTest.Net.RpcLibrary/CSharpTest.Net.RpcLibrary.csproj.CoreCompileIn
 bin/obj/ProtocolBuffers.Rpc.Benchmarks/Google.ProtocolBuffers.Rpc.Benchmarks.csproj.CopyComplete
 bin/obj/ProtocolBuffers.Rpc.Benchmarks/Google.ProtocolBuffers.Rpc.Benchmarks.csproj.CoreCompileInputs.cache
 bin/obj/ProtocolBuffers.Rpc.Benchmarks/Google.ProtocolBuffers.Rpc.Benchmarks.csprojAssemblyReference.cache
+/bin
+bin/obj/CSharpTest.Net.RpcLibrary/DesignTimeResolveAssemblyReferencesInput.cache
+/SampleProtoRpc/obj
+/SampleProtoRpc/bin
+/Google.ProtocolBuffers.Test/obj
+/Google.ProtocolBuffers.Serialization/obj
+/Google.ProtocolBuffers.Rpc/Google.ProtocolBuffers.Rpc.Test/bin
+/Google.ProtocolBuffers.Rpc/Google.ProtocolBuffers.Rpc.Test/obj
+/Google.ProtocolBuffers.Rpc/Google.ProtocolBuffers.Rpc.Benchmarks/bin
+/Google.ProtocolBuffers.Rpc/Google.ProtocolBuffers.Rpc/obj
+/Google.ProtocolBuffers/obj
+/demo/bin
+/demo/obj
+/.vs
