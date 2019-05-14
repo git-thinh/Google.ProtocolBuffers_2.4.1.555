@@ -40,16 +40,6 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Google.ProtocolBuffers.Serialization\Google.ProtocolBuffers.Serialization.csproj">
-      <Project>{9950cc94-f669-429a-b35f-09c65c1d2866}</Project>
-      <Name>Google.ProtocolBuffers.Serialization</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Google.ProtocolBuffers\Google.ProtocolBuffers.csproj">
-      <Project>{26109a3e-9339-44ec-85a6-fade0a176f15}</Project>
-      <Name>Google.ProtocolBuffers</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

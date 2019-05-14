@@ -46,24 +46,6 @@
     <Compile Include="Sample.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CSharpTest.Net.RpcLibrary\CSharpTest.Net.RpcLibrary.csproj">
-      <Project>{399e67c2-a18d-4c5c-9fcf-8bea884ec8d2}</Project>
-      <Name>CSharpTest.Net.RpcLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Google.ProtocolBuffers.Rpc\Google.ProtocolBuffers.Rpc\Google.ProtocolBuffers.Rpc.csproj">
-      <Project>{c908bdce-d925-43f3-94ac-a531e6df2591}</Project>
-      <Name>Google.ProtocolBuffers.Rpc</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Google.ProtocolBuffers.Serialization\Google.ProtocolBuffers.Serialization.csproj">
-      <Project>{9950cc94-f669-429a-b35f-09c65c1d2866}</Project>
-      <Name>Google.ProtocolBuffers.Serialization</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Google.ProtocolBuffers\Google.ProtocolBuffers.csproj">
-      <Project>{26109a3e-9339-44ec-85a6-fade0a176f15}</Project>
-      <Name>Google.ProtocolBuffers</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="books.proto" />
     <None Include="helloworld.proto" />
     <None Include="Sample.proto" />
