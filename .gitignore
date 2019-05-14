@@ -98,3 +98,8 @@ bin/obj/CSharpTest.Net.RpcLibrary/DesignTimeResolveAssemblyReferencesInput.cache
 /demo/obj
 /.vs
 Google.ProtocolBuffers.Rpc/Google.ProtocolBuffers.Rpc.Test/obj/Debug/Google.ProtocolBuffers.Rpc.Test.csprojAssemblyReference.cache
+*.cache
+*.cache
+*.cache
+*.cache
+*.cache
